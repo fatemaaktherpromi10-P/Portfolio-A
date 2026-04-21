@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arifur Rahaman — Political Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --cream: #f8f5f0;
+    --ink: #1a1714;
+    --mid: #5c5651;
+    --light: #a89f97;
+    --accent: #8b4a2f;
+    --border: rgba(26,23,20,0.1);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 4rem;
+    background: rgba(248,245,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: padding .3s;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: .8rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+ 
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    animation: fadeUp .9s ease both;
+  }
+  .hero-tag {
+    font-size: .72rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-bio {
+    font-size: .95rem;
+    color: var(--mid);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: .7rem 2rem;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-block;
+    padding: .7rem 2rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); }
+ 
+  /* ── HERO RIGHT — PHOTO ── */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: #e8e2d9;
+    animation: fadeIn 1.2s ease both .3s;
+  }
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: sepia(8%) contrast(1.04);
+    transition: transform .6s ease;
+  }
+  .hero-right:hover .hero-photo {
+    transform: scale(1.02);
+  }
+  /* Subtle gradient overlay at bottom for stats legibility */
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 55%;
+    background: linear-gradient(to top, rgba(26,23,20,0.55) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-stats {
+    position: absolute; bottom: 2rem; left: 2rem; right: 2rem;
+    display: flex; gap: 1px;
+    z-index: 2;
+  }
+  .stat {
+    flex: 1;
+    background: rgba(248,245,240,.85);
+    padding: 1rem;
+    text-align: center;
+    backdrop-filter: blur(8px);
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+  }
+  .stat-lbl {
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+ 
+  /* ── SECTIONS ── */
+  section { padding: 6rem 0; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 4rem; }
+  .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 4rem; }
+ 
+  .section-label {
+    font-size: .7rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+  }
+  .section-title em { font-style: italic; }
+  .divider {
+    width: 60px; height: 1px;
+    background: var(--accent);
+    margin: 1.5rem 0 3rem;
+  }
+ 
+  /* ── ABOUT ── */
+  #about { background: var(--ink); color: var(--cream); }
+  #about .section-title { color: var(--cream); }
+  #about .section-label { color: #c4a882; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: rgba(248,245,240,.75);
+    margin-bottom: 1.25rem;
+    font-size: .95rem;
+    line-height: 1.85;
+  }
+  .about-details { border-left: 1px solid rgba(248,245,240,.15); padding-left: 3rem; }
+  .detail-item { margin-bottom: 2rem; }
+  .detail-label {
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(248,245,240,.4);
+    margin-bottom: .4rem;
+  }
+  .detail-value {
+    color: rgba(248,245,240,.85);
+    font-size: .9rem;
+  }
+  .detail-value a { color: #c4a882; text-decoration: none; }
+  .detail-value a:hover { text-decoration: underline; }
+ 
+  /* ── EDUCATION ── */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp .5s ease both;
+  }
+  .edu-item:first-child { border-top: 1px solid var(--border); }
+  .edu-year {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--light);
+    padding-top: .25rem;
+    font-style: italic;
+  }
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: .3rem;
+  }
+  .edu-inst {
+    font-size: .88rem;
+    color: var(--accent);
+    margin-bottom: .4rem;
+    font-weight: 500;
+  }
+  .edu-note { font-size: .85rem; color: var(--mid); font-style: italic; }
+ 
+  /* ── RESEARCH ── */
+  #research { background: #f2ede6; }
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .research-card {
+    background: var(--cream);
+    padding: 2rem;
+    border: 1px solid var(--border);
+    transition: border-color .2s, transform .2s;
+    cursor: default;
+  }
+  .research-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .card-tag {
+    font-size: .65rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: .75rem;
+  }
+  .card-venue {
+    font-size: .8rem;
+    color: var(--mid);
+    font-style: italic;
+  }
+  .card-status {
+    display: inline-block;
+    margin-top: .75rem;
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .25rem .7rem;
+    border: 1px solid var(--border);
+    color: var(--mid);
+  }
+  .card-status.accepted { border-color: #4a7c59; color: #4a7c59; }
+  .card-status.review { border-color: #8b6914; color: #8b6914; }
+  .card-status.published { border-color: var(--accent); color: var(--accent); }
+ 
+  /* ── PUBLICATIONS LIST ── */
+  .pub-list { list-style: none; }
+  .pub-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .pub-num {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--border);
+    font-weight: 300;
+    min-width: 2.5rem;
+    line-height: 1;
+    padding-top: .2rem;
+  }
+  .pub-content { flex: 1; }
+  .pub-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: .3rem;
+    line-height: 1.4;
+  }
+  .pub-meta { font-size: .82rem; color: var(--mid); }
+  .pub-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: .5rem;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+  .pub-item:hover .pub-link { opacity: 1; }
+ 
+  /* ── APPOINTMENTS ── */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item {
+    padding: 0 0 2.5rem 2.5rem;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -4px; top: .5rem;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 1.5px solid var(--accent);
+  }
+  .tl-period {
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .3rem;
+  }
+  .tl-role {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: .2rem;
+  }
+  .tl-org { font-size: .85rem; color: var(--mid); margin-bottom: .4rem; }
+  .tl-desc { font-size: .85rem; color: var(--mid); font-style: italic; }
+ 
+  /* ── SKILLS ── */
+  #skills { background: var(--ink); }
+  #skills .section-title { color: var(--cream); }
+  #skills .section-label { color: #c4a882; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(248,245,240,.08);
+    border: 1px solid rgba(248,245,240,.08);
+  }
+  .skill-group {
+    padding: 2rem 1.75rem;
+    background: var(--ink);
+  }
+  .skill-group-title {
+    font-size: .65rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #c4a882;
+    margin-bottom: 1.25rem;
+  }
+  .skill-item {
+    font-size: .88rem;
+    color: rgba(248,245,240,.65);
+    padding: .3rem 0;
+    border-bottom: 1px solid rgba(248,245,240,.06);
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .skill-item::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+ 
+  /* ── AWARDS ── */
+  .awards-list { list-style: none; }
+  .award-item {
+    display: flex; gap: 2rem; align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .award-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .award-title { font-family: var(--serif); font-size: 1rem; font-weight: 500; margin-bottom: .25rem; }
+  .award-org { font-size: .82rem; color: var(--mid); }
+  .award-amount { font-size: .8rem; color: var(--accent); font-weight: 500; margin-top: .2rem; }
+ 
+  /* ── WRITING ── */
+  #writing { background: #f2ede6; }
+  .writing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .writing-card {
+    background: var(--cream);
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color .2s, transform .2s;
+  }
+  .writing-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .writing-pub {
+    font-size: .65rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: .5rem;
+  }
+  .writing-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: .5rem;
+    color: var(--ink);
+  }
+  .writing-year { font-size: .78rem; color: var(--light); }
+  .writing-arrow {
+    display: block;
+    margin-top: 1rem;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+ 
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .contact-text {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .contact-text em { font-style: italic; color: var(--accent); }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; gap: 1rem; align-items: center;
+    font-size: .85rem;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link-label {
+    font-size: .65rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: .2rem;
+  }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(248,245,240,.35);
+    text-align: center;
+    padding: 2rem 4rem;
+    font-size: .75rem;
+    letter-spacing: .06em;
+  }
+  footer a { color: rgba(248,245,240,.5); text-decoration: none; }
+ 
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 70vw; min-height: 320px; }
+    .hero-left { padding: 5rem 1.5rem 3rem; }
+    .container, .container-narrow { padding: 0 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-details { border-left: none; padding-left: 0; border-top: 1px solid rgba(248,245,240,.15); padding-top: 2rem; }
+    .research-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .writing-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .edu-item { grid-template-columns: 1fr; gap: .5rem; }
+  }
+ 
+  /* ── TAB SYSTEM ── */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .tab {
+    padding: .75rem 1.75rem;
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    color: var(--light);
+    transition: all .2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: var(--sans);
+  }
+  .tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+  .tab:hover:not(.active) { color: var(--mid); }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── PHOTO FALLBACK (shows initials if image fails to load) ── */
+  .hero-photo-fallback {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #e8e2d9 0%, #d4cbbf 100%);
+    position: absolute; inset: 0;
+    z-index: 0;
+  }
+  .hero-initials {
+    width: 160px; height: 160px;
+    border: 2px solid rgba(139,74,47,.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: .1em;
+  }
+  .hero-location {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .hero-photo {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#hero">Arifur Rahaman</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#appointments">Experience</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Political Scientist &amp; Sociologist</p>
+    <h1 class="hero-name">Arifur<br><em>Rahaman</em></h1>
+    <p class="hero-bio">
+      PhD Student in Comparative Politics at the University of Alabama. My work examines democratic erosion, military gatekeeping, and youth mobilization in South and Southeast Asia — with a particular focus on Bangladesh.
+    </p>
+    <div class="hero-cta">
+      <a href="#research" class="btn-primary">View Research</a>
+      <a href="mailto:arahaman@crimson.ua.edu" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <!-- HERO RIGHT: Replace the src below with your actual photo URL or local file path -->
+  <div class="hero-right">
+    <!-- Fallback shown if image fails to load -->
+    <div class="hero-photo-fallback" id="photoFallback">
+      <div class="hero-initials">AR</div>
+      <p class="hero-location">Tuscaloosa, Alabama · USA</p>
+    </div>
+    <!--
+      ════════════════════════════════════════════════════════
+      PHOTO INSTRUCTION:
+      Replace the src attribute below with your actual photo.
+
+      Option A — Local file (same folder as this HTML):
+        src="arifur-photo.jpg"
+
+      Option B — Full URL:
+        src="https://yourdomain.com/path/to/photo.jpg"
+
+      Option C — Google Drive (get shareable link, replace FILE_ID):
+        src="https://drive.google.com/uc?export=view&id=FILE_ID"
+
+      Recommended: A portrait/headshot oriented image works best.
+      The image will fill the entire right panel, cropped to center-top.
+      ════════════════════════════════════════════════════════
+    -->
+    <img
+      class="hero-photo"
+      src="https://i.postimg.cc/bwxVkVTx/e69ad65e-6012-433e-bb37-48aad5f814d2.jpg"
+      alt="Arifur Rahaman — Political Scientist, University of Alabama"
+      id="heroPhoto"
+      onerror="this.style.display='none'; document.getElementById('photoFallback').style.zIndex='2';"
+      style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:sepia(8%) contrast(1.04);transition:transform .6s ease;"
+    />
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">10+</span>
+        <span class="stat-lbl">Publications</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-lbl">Conferences</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">6+</span>
+        <span class="stat-lbl">Research Projects</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Comparative Politics<br><em>with a Regional Focus</em></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a PhD student in Political Science (Comparative Politics) at the University of Alabama, where I also serve as a Graduate Teaching Assistant. My research sits at the intersection of political sociology and comparative politics, with a focus on authoritarianism, democratic backsliding, and contentious politics in South and Southeast Asia.</p>
+        <p>Before joining Alabama, I was a Lecturer of Sociology at Gono University in Dhaka, where I taught Urban Sociology, Gender Studies, Social Inequality, and Political Sociology. I hold a Master's degree in Sociology from the University of Dhaka, where my thesis explored consumption and identity among the urban middle class.</p>
+        <p>My fieldwork and research projects have taken me across Bangladesh — studying Munda communities in the Sundarbans, climate-induced displacement, school dropout in urban slums, and the July 2024 protest cycle. I am currently a Research Assistant to Dr. Holger Albrecht, working on Gen-Z protest movements.</p>
+      </div>
+      <div class="about-details">
+        <div class="detail-item">
+          <p class="detail-label">Current Position</p>
+          <p class="detail-value">PhD Student, Political Science<br>University of Alabama</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Research Interests</p>
+          <p class="detail-value">Democratic Erosion · Military Gatekeeping · Youth Mobilization · South Asia · Postcolonial Politics</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Email</p>
+          <p class="detail-value"><a href="mailto:arahaman@crimson.ua.edu">arahaman@crimson.ua.edu</a></p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Professional Memberships</p>
+          <p class="detail-value">MPSA · APSA · Editorial Board, Global Dialogue (ISA)</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">CV Updated</p>
+          <p class="detail-value">April 12, 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic<br><em>Formation</em></h2>
+    <div class="divider"></div>
+ 
+    <div class="edu-item">
+      <div class="edu-year">2025–<br>present</div>
+      <div>
+        <p class="edu-degree">Doctor of Philosophy in Political Science</p>
+        <p class="edu-inst">The University of Alabama, Tuscaloosa, AL, USA</p>
+        <p class="edu-note">Major: Comparative Politics</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2020–2022</div>
+      <div>
+        <p class="edu-degree">Master of Social Sciences in Sociology</p>
+        <p class="edu-inst">University of Dhaka, Bangladesh</p>
+        <p class="edu-note">Thesis: <em>Consumption and Identity: A Study on Urban Middle Class in Dhaka City</em><br>Advisor: Dr. Debasish Kundu</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2016–2019</div>
+      <div>
+        <p class="edu-degree">Bachelor of Social Sciences in Sociology</p>
+        <p class="edu-inst">University of Dhaka, Bangladesh</p>
+        <p class="edu-note">Project: <em>Status Identity Crisis of the Bihari Diasporas in Bangladesh</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">Research &amp; Publications</p>
+    <h2 class="section-title">Scholarly<br><em>Contributions</em></h2>
+    <div class="divider"></div>
+ 
+    <!-- Featured Articles -->
+    <h3 style="font-family:var(--serif);font-weight:400;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:1.5rem;">Peer-Reviewed Articles</h3>
+    <div class="research-grid">
+      <div class="research-card">
+        <p class="card-tag">Journal of Asian and African Studies</p>
+        <p class="card-title">Unsettling Political Science: Decolonial Approaches to Curriculum, Theory, and Practice in Bangladesh</p>
+        <span class="card-status accepted">Accepted</span>
+      </div>
+      <div class="research-card">
+        <p class="card-tag">Social Movement Studies</p>
+        <p class="card-title">From Illusory Democracy to Mobilization Readiness: Student Perceptions and Campus Party Capture on the Eve of July 2024</p>
+        <span class="card-status review">Under Review</span>
+      </div>
+      <div class="research-card">
+        <p class="card-tag">Asian Ethnicity</p>
+        <p class="card-title">Graded Belonging and the Politics of Otherness: Citizenship, Exclusion and Moral Statecraft in Postcolonial South Asia</p>
+        <span class="card-status review">Under Review</span>
+      </div>
+      <div class="research-card">
+        <p class="card-tag">Journal of Bangladesh Studies</p>
+        <p class="card-title">Conflict as Governance: Everyday Political Ordering and Informal Power in Rural Bangladesh</p>
+        <p class="card-venue">with Tahsinul Haque</p>
+        <span class="card-status review">Under Review</span>
+      </div>
+      <div class="research-card">
+        <p class="card-tag">Int'l Journal of Social, Political and Economic Research, 2021</p>
+        <p class="card-title">Origin and Socio-Cultural Formation of Bihari Identity: A Study on the Bihari Community in Bangladesh</p>
+        <p class="card-venue">with Uddin, A.J. &amp; Hossain, M.S.</p>
+        <span class="card-status published">Published</span>
+      </div>
+      <div class="research-card">
+        <p class="card-tag">PLOS ONE, 2022</p>
+        <p class="card-title">Factors Associated with Facebook Addiction among University Students during the COVID-19 Pandemic</p>
+        <p class="card-venue">Ripon, R.K.; Al Zubayer, A. et al.</p>
+        <span class="card-status published">Published</span>
+      </div>
+    </div>
+ 
+    <!-- Tabs for other publication types -->
+    <div class="tabs" style="margin-top:3rem;">
+      <button class="tab active" onclick="switchTab(this,'chapters')">Book Chapters</button>
+      <button class="tab" onclick="switchTab(this,'reports')">Reports &amp; Policy</button>
+      <button class="tab" onclick="switchTab(this,'progress')">In Progress</button>
+      <button class="tab" onclick="switchTab(this,'conferences')">Conferences</button>
+    </div>
+ 
+    <div id="chapters" class="tab-pane active">
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-num">01</span>
+          <div class="pub-content">
+            <p class="pub-title">Chronopolitics of Survival: Night Work and Climate Adaptation in Urban Bangladesh</p>
+            <p class="pub-meta">Co-authored book chapter — In press</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">02</span>
+          <div class="pub-content">
+            <p class="pub-title">Cooling Dhaka: Climate-Responsive Urbanism for a Resilient and Livable Capital</p>
+            <p class="pub-meta">In: <em>Urban Heat: Linking Policy and Action</em> — Co-authored</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">03</span>
+          <div class="pub-content">
+            <p class="pub-title">Cultural Resilience in a Disaster-Prone Delta: Habitus, Environmental Precarity, and Generational Change among the Munda Adivasi Community</p>
+            <p class="pub-meta">with Roy, S.; Francis, A.; Shams, A. — Accepted, in progress</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+ 
+    <div id="reports" class="tab-pane">
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-num">01</span>
+          <div class="pub-content">
+            <p class="pub-title">Conserving Cultural Heritage and Resilience: Adaptation of the Munda Community to Climate Change in Coastal Bangladesh</p>
+            <p class="pub-meta">with Alom, Md. Shahin — Saleemul Huq memorial scholarship. In Press, May 2026</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">02</span>
+          <div class="pub-content">
+            <p class="pub-title">Nexus between Climate-Induced Displacement and Violence against Women and Girls: Evidence from Disaster-Prone Areas of Bangladesh</p>
+            <p class="pub-meta">with Hossain, S. — Share-Net Bangladesh, 2022</p>
+            <a href="https://share-netinternational.org/resources/evidence-disaster-bangladesh/" target="_blank" class="pub-link">Read Report →</a>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">03</span>
+          <div class="pub-content">
+            <p class="pub-title">Situation Analysis of Laws, Policies, and Interventions to Prevent School Dropouts in Bangladesh</p>
+            <p class="pub-meta">Policy report — GPE KIX</p>
+            <a href="https://www.gpekix.org/knowledge-repository/laws-policies-existing-interventions-and-scopescalability-prevent-school" target="_blank" class="pub-link">Read Report →</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+ 
+    <div id="progress" class="tab-pane">
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-num">01</span>
+          <div class="pub-content">
+            <p class="pub-title">Military Gatekeeping and the Erosion of Democratic Governance in Electoral Regimes: Evidence from South and Southeast Asia</p>
+            <p class="pub-meta">with Jack, Poo Siew — Work in progress</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">02</span>
+          <div class="pub-content">
+            <p class="pub-title">Strategic Neutrality and Military Behavior During Mass Mobilization: The Case of Bangladesh's 2024 Protest Cycle</p>
+            <p class="pub-meta">Solo — In progress</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">03</span>
+          <div class="pub-content">
+            <p class="pub-title">Relational Mobilization under Constraint: Social Media, Peer Networks, and Youth Participation in Repressive Contexts</p>
+            <p class="pub-meta">with Haque, Tahsinul — Submitted to <em>Discover Global Society</em></p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">04</span>
+          <div class="pub-content">
+            <p class="pub-title">Enacted Gatekeeping and Democratic Erosion under Electoral Continuity: Evidence from Bangladesh</p>
+            <p class="pub-meta">Solo — Work in progress</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+ 
+    <div id="conferences" class="tab-pane">
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-num">2026</span>
+          <div class="pub-content">
+            <p class="pub-title">Commitment without Confidence: Student Democracy and Mobilization before the 2024 Uprising in Bangladesh</p>
+            <p class="pub-meta">83rd Annual Midwest Political Science Association Conference, Chicago, IL, USA</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">2025</span>
+          <div class="pub-content">
+            <p class="pub-title">Hybrid Orders and the Paradoxes of Democratization: Structural Mechanisms of Political Stagnation in South and Southeast Asia</p>
+            <p class="pub-meta">World Democracy Congress 2025, Dhaka, Bangladesh</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">2024</span>
+          <div class="pub-content">
+            <p class="pub-title">Democratic Transitions in South Asia: Paradoxes and Challenges</p>
+            <p class="pub-meta">2nd International Conference on Innovation and Transformation for Development, Green University of Bangladesh</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">2022</span>
+          <div class="pub-content">
+            <p class="pub-title">Vulnerability of Displaced Women in Disaster: An Application of the Pressure and Release Model</p>
+            <p class="pub-meta">2nd SAIST International Conference on Education, Health, and Environment</p>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-num">2019</span>
+          <div class="pub-content">
+            <p class="pub-title">Rural Household Disaster Preparedness in Noakhali, Bangladesh</p>
+            <p class="pub-meta">Conference on Environmental Solutions for Sustainable Development — <em>Best Poster Award</em></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+ 
+<!-- APPOINTMENTS -->
+<section id="appointments">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Academic &amp;<br><em>Research Appointments</em></h2>
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;">
+      <div>
+        <h3 style="font-family:var(--serif);font-weight:400;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:2rem;">Academic Positions</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <p class="tl-period">Aug 2025 – Present</p>
+            <p class="tl-role">Graduate Teaching Assistant</p>
+            <p class="tl-org">University of Alabama, Tuscaloosa, AL</p>
+            <p class="tl-desc">Department of Political Science</p>
+          </div>
+          <div class="timeline-item">
+            <p class="tl-period">Jul 2023 – Jun 2025</p>
+            <p class="tl-role">Lecturer of Sociology</p>
+            <p class="tl-org">Gono University, Dhaka, Bangladesh</p>
+            <p class="tl-desc">Urban Sociology; Gender Studies; Social Inequality; Political Sociology</p>
+          </div>
+          <div class="timeline-item">
+            <p class="tl-period">Jan 2026 – Present</p>
+            <p class="tl-role">Research Assistant</p>
+            <p class="tl-org">University of Alabama</p>
+            <p class="tl-desc">Gen-Z Protest · Under Dr. Holger Albrecht</p>
+          </div>
+          <div class="timeline-item">
+            <p class="tl-period">Jun 2024 – Dec 2025</p>
+            <p class="tl-role">Research Assistant</p>
+            <p class="tl-org">University of Dhaka (UGC-funded)</p>
+            <p class="tl-desc">The State of Sociology in Bangladesh, 1958–2021</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--serif);font-weight:400;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:2rem;">Research Positions</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <p class="tl-period">Dec 2024 – Mar 2023</p>
+            <p class="tl-role">Researcher — Non-Economic Loss &amp; Damages</p>
+            <p class="tl-org">International Institute for Environment and Development (IIED)</p>
+            <p class="tl-desc">Munda Community resilience in the Sundarbans</p>
+          </div>
+          <div class="timeline-item">
+            <p class="tl-period">May 2022 – Feb 2023</p>
+            <p class="tl-role">Research Associate</p>
+            <p class="tl-org">South Asian Institute for Social Transformation</p>
+            <p class="tl-desc">Preventing school dropout in Dhaka's marginalized slum areas</p>
+          </div>
+          <div class="timeline-item">
+            <p class="tl-period">Mar 2023 – Jun 2023</p>
+            <p class="tl-role">Research Assistant</p>
+            <p class="tl-org">Sesame Workshop Bangladesh</p>
+            <p class="tl-desc">Portrayal of Third Gender in Children's Media</p>
+          </div>
+          <div class="timeline-item">
+            <p class="tl-period">Jun 2021 – Dec 2021</p>
+            <p class="tl-role">Young Research Fellow</p>
+            <p class="tl-org">Share Net Bangladesh</p>
+            <p class="tl-desc">Nexus between Climate Change and Violence Against Women</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Methods &amp; Tools</p>
+    <h2 class="section-title" style="color:var(--cream);">Technical<br><em style="color:#c4a882">Expertise</em></h2>
+    <div class="divider" style="background:#c4a882"></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-title">Quantitative Analysis</p>
+        <div class="skill-item">STATA</div>
+        <div class="skill-item">SPSS</div>
+        <div class="skill-item">Survey instrument design</div>
+        <div class="skill-item">Mixed methods research</div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Qualitative Analysis</p>
+        <div class="skill-item">NVivo</div>
+        <div class="skill-item">ATLAS.ti</div>
+        <div class="skill-item">Ethnographic fieldwork</div>
+        <div class="skill-item">Discourse analysis</div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Data Collection</p>
+        <div class="skill-item">KoboToolbox</div>
+        <div class="skill-item">SurveyCTO</div>
+        <div class="skill-item">M&amp;E toolkits</div>
+        <div class="skill-item">Focus group methods</div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Academic Writing</p>
+        <div class="skill-item">Research proposals</div>
+        <div class="skill-item">Grant proposals</div>
+        <div class="skill-item">Policy reports</div>
+        <div class="skill-item">Op-ed &amp; public writing</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container-narrow">
+    <p class="section-label">Grants &amp; Awards</p>
+    <h2 class="section-title">Fellowships &amp;<br><em>Recognition</em></h2>
+    <div class="divider"></div>
+    <ul class="awards-list">
+      <li class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <p class="award-title">Saleemul Huq Memorial Scholarship for Loss and Damage Research</p>
+          <p class="award-org">International Institute for Environment &amp; Development (IIED), UK</p>
+          <p class="award-amount">USD 5,000</p>
+        </div>
+      </li>
+      <li class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <p class="award-title">Research Grant — Indigenous Health and Wellbeing</p>
+          <p class="award-org">Gono University, Bangladesh</p>
+          <p class="award-amount">USD 3,500</p>
+        </div>
+      </li>
+      <li class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <p class="award-title">Young Researcher Fellowship</p>
+          <p class="award-org">Share-Net Bangladesh, 2021</p>
+          <p class="award-amount">USD 2,000</p>
+        </div>
+      </li>
+      <li class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <p class="award-title">Merit-Based Scholarships (Bachelor's and Master's)</p>
+          <p class="award-org">University of Dhaka, Bangladesh</p>
+        </div>
+      </li>
+      <li class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <p class="award-title">Best Conference Poster Award</p>
+          <p class="award-org">Conference on Environmental Solutions for Sustainable Development, Dhaka, 2019</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+ 
+<!-- PUBLIC WRITING -->
+<section id="writing">
+  <div class="container">
+    <p class="section-label">Public Scholarship</p>
+    <h2 class="section-title">Selected<br><em>Public Writing</em></h2>
+    <div class="divider"></div>
+    <div class="writing-grid">
+      <a href="https://www.thedailystar.net/opinion/views/news/what-bangladeshs-fake-news-boom-says-about-our-information-crisis-4013326" target="_blank" class="writing-card">
+        <p class="writing-pub">The Daily Star</p>
+        <p class="writing-title">What Bangladesh's Fake News Boom Says about Our Information Crisis</p>
+        <p class="writing-year">2025</p>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://www.thedailystar.net/opinion/views/news/what-awaits-awami-league-after-hasina-verdict-4041836" target="_blank" class="writing-card">
+        <p class="writing-pub">The Daily Star</p>
+        <p class="writing-title">What Awaits Awami League after the Hasina Verdict</p>
+        <p class="writing-year">2025</p>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://www.thedailystar.net/opinion/views/news/dhaka-kathmandu-how-gen-z-confronting-power-south-asia-3981811" target="_blank" class="writing-card">
+        <p class="writing-pub">The Daily Star</p>
+        <p class="writing-title">Dhaka to Kathmandu: How Gen Z Is Confronting Power in South Asia</p>
+        <p class="writing-year">2025</p>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://www.daily-sun.com/post/790765" target="_blank" class="writing-card">
+        <p class="writing-pub">Daily Sun</p>
+        <p class="writing-title">Beyond the Turmoil: The Struggle for an Interim Order</p>
+        <p class="writing-year">2024</p>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://www.daily-sun.com/post/775433" target="_blank" class="writing-card">
+        <p class="writing-pub">Daily Sun</p>
+        <p class="writing-title">Climate Crisis: Internal Migration, Dreams, and Despair</p>
+        <p class="writing-year">2024</p>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://www.thedailystar.net/opinion/readers-voice/news/empowering-women-sustaining-the-environment-3488766" target="_blank" class="writing-card">
+        <p class="writing-pub">The Daily Star</p>
+        <p class="writing-title">Empowering Women, Sustaining the Environment</p>
+        <p class="writing-year">2023</p>
+        <span class="writing-arrow">Read →</span>
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-text">Let's connect on<br><em>research, collaboration,</em><br>or academic inquiry.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:arahaman@crimson.ua.edu" class="contact-link">
+          <div>
+            <p class="contact-link-label">Email</p>
+            <p>arahaman@crimson.ua.edu</p>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/arifur-rahaman-4ab341142/" target="_blank" class="contact-link">
+          <div>
+            <p class="contact-link-label">LinkedIn</p>
+            <p>linkedin.com/in/arifur-rahaman</p>
+          </div>
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <div>
+            <p class="contact-link-label">Office</p>
+            <p>Department of Political Science<br>University of Alabama, Tuscaloosa, AL 35401</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Arifur Rahaman &nbsp;·&nbsp; PhD Candidate, Political Science, University of Alabama &nbsp;·&nbsp; <a href="mailto:arahaman@crimson.ua.edu">arahaman@crimson.ua.edu</a></p>
+</footer>
+ 
+<script>
+  function switchTab(btn, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+ 
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+ 
+  document.querySelectorAll('.edu-item, .research-card, .timeline-item, .award-item, .writing-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+
+  // Hover zoom on hero photo
+  const heroPhoto = document.getElementById('heroPhoto');
+  if (heroPhoto) {
+    heroPhoto.closest('.hero-right').addEventListener('mouseenter', () => {
+      heroPhoto.style.transform = 'scale(1.03)';
+    });
+    heroPhoto.closest('.hero-right').addEventListener('mouseleave', () => {
+      heroPhoto.style.transform = 'scale(1)';
+    });
+  }
+</script>
+</body>
+</html>
